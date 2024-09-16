@@ -1,4 +1,4 @@
-﻿namespace KoiCenter.Service
+﻿namespace KoiCenter.Common
 {
     public class Class1
     {
