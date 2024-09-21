@@ -6,4 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KoiCenter.Common\KoiCenter.Common.csproj" />
+    <ProjectReference Include="..\KoiCenter.DataAccess\KoiCenter.Data.csproj" />
+    <ProjectReference Include="..\KoiCenter.Service\KoiCenter.Service.csproj" />
+  </ItemGroup>
+
 </Project>

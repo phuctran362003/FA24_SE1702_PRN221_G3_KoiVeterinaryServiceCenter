@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KoiCenter.Common\KoiCenter.Common.csproj" />
+    <ProjectReference Include="..\KoiCenter.DataAccess\KoiCenter.Data.csproj" />
+  </ItemGroup>
+
 </Project>

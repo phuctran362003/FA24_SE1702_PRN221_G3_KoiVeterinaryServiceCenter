@@ -97,7 +97,7 @@ namespace KoiCenter.Data.Base
             return await _context.Set<T>().FindAsync(code);
         }
 
-        #region Separating asign entity and save operators        
+
 
         public void PrepareCreate(T entity)
         {
@@ -127,4 +127,3 @@ namespace KoiCenter.Data.Base
     }
 }
 
-#endregion

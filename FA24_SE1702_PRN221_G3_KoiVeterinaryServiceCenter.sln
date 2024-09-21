@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoiCenter.Data", "KoiCenter.DataAccess\KoiCenter.Data.csproj", "{9BF8E7D1-52AF-4CE8-9ABA-542D62971DF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiCenter.Data", "KoiCenter.DataAccess\KoiCenter.Data.csproj", "{9BF8E7D1-52AF-4CE8-9ABA-542D62971DF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoiCenter.WebApp", "KoiCenter.WebApp\KoiCenter.WebApp.csproj", "{5FF49789-EDD8-4E12-937B-685041E72AC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiCenter.WebApp", "KoiCenter.WebApp\KoiCenter.WebApp.csproj", "{5FF49789-EDD8-4E12-937B-685041E72AC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoiCenter.Service", "KoiCenter.Service\KoiCenter.Service.csproj", "{E7104A1D-187A-47F5-93AF-C83C59DCBDB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiCenter.Service", "KoiCenter.Service\KoiCenter.Service.csproj", "{E7104A1D-187A-47F5-93AF-C83C59DCBDB5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiCenter.Common", "KoiCenter.Common\KoiCenter.Common.csproj", "{2C703E7D-240A-4251-805D-F817877BC49B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{E7104A1D-187A-47F5-93AF-C83C59DCBDB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7104A1D-187A-47F5-93AF-C83C59DCBDB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7104A1D-187A-47F5-93AF-C83C59DCBDB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C703E7D-240A-4251-805D-F817877BC49B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C703E7D-240A-4251-805D-F817877BC49B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C703E7D-240A-4251-805D-F817877BC49B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C703E7D-240A-4251-805D-F817877BC49B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

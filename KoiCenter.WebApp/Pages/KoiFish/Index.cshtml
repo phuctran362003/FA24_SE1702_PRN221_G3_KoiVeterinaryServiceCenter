@@ -1,0 +1,126 @@
+﻿@page
+@model KoiFarmShop.RazorWebApp.Pages.KoiFish.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].Name)    
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].Breed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].ImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].Length)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].LastHealthCheck)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].HealthStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].UpdatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].IsDeleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].Owner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].PetType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Pet) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Breed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Length)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastHealthCheck)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HealthStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDeleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Owner.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PetType.Id)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

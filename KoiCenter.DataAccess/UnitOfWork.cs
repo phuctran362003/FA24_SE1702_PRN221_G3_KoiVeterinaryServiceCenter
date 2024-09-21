@@ -5,23 +5,20 @@ namespace KoiCenter.Data
 {
     public class UnitOfWork
     {
-        private FA24_SE1702_PRN221_G3_KoiVeterinaryServiceCenterContext _context;
-        private PetRepository _petRepository;
+        private FA24_SE1702_PRN221_G3_KoiVeterinaryServiceCenterContext _unitOfWorkContext;
+        public PetRepository _petRepository;
 
-        public UnitOfWork(PetRepository petRepository, FA24_SE1702_PRN221_G3_KoiVeterinaryServiceCenterContext context)
+        public UnitOfWork()
         {
-
-            _petRepository = petRepository;
-            _context = context;
+            _unitOfWorkContext ??= new FA24_SE1702_PRN221_G3_KoiVeterinaryServiceCenterContext();
         }
 
         public PetRepository PetRepository
         {
-            get { return _petRepository; }
+            get
+            {
+                return _petRepository ??= new Repository.PetRepository(_unitOfWorkContext);
+            }
         }
-
-
-
-
     }
 }

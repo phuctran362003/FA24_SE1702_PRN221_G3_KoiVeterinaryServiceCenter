@@ -1,0 +1,102 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!-- Hero Section -->
+<section class="hero d-flex flex-column justify-content-center align-items-center text-white text-center">
+    <div class="overlay"></div>
+    <div class="content">
+        <h1 class="display-2 font-weight-bold mb-4 animate__animated animate__fadeInDown">Welcome to ASP.NET Core</h1>
+        <p class="lead mb-5 animate__animated animate__fadeInUp">Create dynamic, cloud-enabled web apps faster than ever.</p>
+        <a href="https://learn.microsoft.com/aspnet/core" class="btn btn-light btn-lg px-5 py-3 animate__animated animate__fadeInUp" target="_blank">Start Building</a>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm animate__animated animate__fadeInLeft">
+                    <div class="card-body">
+                        <i class="bi bi-speedometer2 display-4 text-primary mb-3"></i>
+                        <h5 class="card-title">High Performance</h5>
+                        <p class="card-text">Build blazing fast applications optimized for performance and scalability.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm animate__animated animate__fadeInUp">
+                    <div class="card-body">
+                        <i class="bi bi-shield-lock-fill display-4 text-success mb-3"></i>
+                        <h5 class="card-title">Security First</h5>
+                        <p class="card-text">Robust, built-in security features to protect your applications and data.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm animate__animated animate__fadeInRight">
+                    <div class="card-body">
+                        <i class="bi bi-cloud-arrow-up-fill display-4 text-info mb-3"></i>
+                        <h5 class="card-title">Cloud Ready</h5>
+                        <p class="card-text">Deploy effortlessly to any cloud environment, built for scalability.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta py-5 text-center text-white">
+    <div class="container">
+        <h2 class="mb-4 animate__animated animate__fadeInDown">Ready to Build Your Next Project?</h2>
+        <p class="lead mb-5 animate__animated animate__fadeInUp">Follow our comprehensive guide to create your first ASP.NET Core app in minutes.</p>
+        <a href="https://learn.microsoft.com/aspnet/core" class="btn btn-outline-light btn-lg px-5 py-3 animate__animated animate__fadeInUp" target="_blank">Learn More</a>
+    </div>
+</section>
+
+<!-- Custom CSS -->
+<style>
+    .hero {
+        background: url('https://source.unsplash.com/1600x900/?tech,web-development') no-repeat center center;
+        background-size: cover;
+        height: 100vh;
+        position: relative;
+    }
+    .hero .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+    }
+    .hero .content {
+        position: relative;
+        z-index: 1;
+    }
+    .features .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .features .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    .cta {
+        background: #007bff;
+        background: linear-gradient(135deg, #007bff 0%, #00d4ff 100%);
+    }
+    .cta a {
+        border-color: #fff;
+    }
+    .cta a:hover {
+        background: #fff;
+        color: #007bff;
+    }
+</style>
+
+<!-- Include Animate.css for simple animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
