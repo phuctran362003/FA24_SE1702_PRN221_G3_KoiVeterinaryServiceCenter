@@ -7,18 +7,18 @@ namespace KoiCenter.Service
 {
     public interface IPetService
     {
-        Task<BusinessResult> GetAll();
-        Task<BusinessResult> GetById(int id);
-        Task<BusinessResult> Save(Pet pet);
+        Task<IBusinessResult> GetAll();
+        Task<IBusinessResult> GetById(int id);
+        Task<IBusinessResult> Save(Pet pet);
 
-        Task<BusinessResult> DeleteById(int id);
+        Task<IBusinessResult> DeleteById(int id);
     }
     public class PetService : IPetService
     {
         private readonly UnitOfWork _unitOfWork;
         public PetService() => _unitOfWork ??= new UnitOfWork();
 
-        public async Task<BusinessResult> GetAll()
+        public async Task<IBusinessResult> GetAll()
         {
             #region Business Rule
 
@@ -28,7 +28,7 @@ namespace KoiCenter.Service
 
             if (pets == null)
             {
-                return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
+                return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, new List<Pet>());
             }
             else
             {
@@ -36,32 +36,30 @@ namespace KoiCenter.Service
             }
         }
 
-        public async Task<BusinessResult> GetById(int id)
+        public async Task<IBusinessResult> GetById(int id)
         {
-            #region Business Rule
+            //lay 1 con petResult
 
-            #endregion Business Rule
-
-            var pets = _unitOfWork.PetRepository.GetByIdAsync(id);
-            if (pets == null)
+            var pet = _unitOfWork.PetRepository.GetByIdAsync(id);
+            if (pet == null)
             {
-                return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
+                return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, new Pet());
             }
             else
             {
-                return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, pets);
+                return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, pet);
             }
         }
 
-        public async Task<BusinessResult> Save(Pet pet)
+        public async Task<IBusinessResult> Save(Pet pet)
         {
             try
             {
                 int result = -1;
 
-                var petTemp = this.GetById(pet.Id);
+                var petTemp = _unitOfWork.PetRepository.GetById(pet.Id);
 
-                if (petTemp.Result.Status == Const.SUCCESS_READ_CODE)
+                if (petTemp != null)
                 {
 
                     result = await _unitOfWork.PetRepository.UpdateAsync(pet);
@@ -92,33 +90,33 @@ namespace KoiCenter.Service
             catch (Exception ex)
             {
 
-                return new BusinessResult(Const.ERROR_EXCEPTION, ex.Message);
+                return new BusinessResult(Const.ERROR_EXCEPTION, ex.Message.ToString());
             }
         }
 
-        public async Task<BusinessResult> DeleteById(int id)
+        public async Task<IBusinessResult> DeleteById(int id)
         {
             try
             {
-                var result = false;
-                var petResult = this.GetById(id);
+                var petResult = await _unitOfWork.PetRepository.GetByIdAsync(id);
 
-                if (petResult != null && petResult.Result.Status == Const.SUCCESS_READ_CODE)
+                if (petResult == null)
                 {
-                    result = await _unitOfWork.PetRepository.RemoveAsync((Pet)petResult.Result.Data);
+                    return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, new Pet());
+                }
 
+                else
+                {
+                    var result = await _unitOfWork.PetRepository.RemoveAsync(petResult);
                     if (result)
                     {
-                        return new BusinessResult(Const.SUCCESS_DELETE_CODE, Const.SUCCESS_DELETE_MSG, result);
+                        return new BusinessResult(Const.SUCCESS_DELETE_CODE, Const.SUCCESS_DELETE_MSG, petResult);
                     }
                     else
                     {
-                        return new BusinessResult(Const.FAIL_CREATE_CODE, Const.FAIL_CREATE_MSG, petResult.Result.Data);
+                        return new BusinessResult(Const.FAIL_DELETE_CODE, Const.FAIL_DELETE_MSG, petResult);
+
                     }
-                }
-                else
-                {
-                    return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
                 }
             }
             catch (Exception ex)
