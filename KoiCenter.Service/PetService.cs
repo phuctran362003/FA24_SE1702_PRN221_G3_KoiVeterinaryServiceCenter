@@ -7,6 +7,7 @@ namespace KoiCenter.Service
 {
     public interface IPetService
     {
+        Task<IBusinessResult> Create(Pet pet);
         Task<IBusinessResult> GetAll();
         Task<IBusinessResult> GetById(int id);
         Task<IBusinessResult> Save(Pet pet);
@@ -17,6 +18,11 @@ namespace KoiCenter.Service
     {
         private readonly UnitOfWork _unitOfWork;
         public PetService() => _unitOfWork ??= new UnitOfWork();
+
+        public Task<IBusinessResult> Create(Pet pet)
+        {
+            throw new NotImplementedException();
+        }
 
         public async Task<IBusinessResult> GetAll()
         {
@@ -124,6 +130,7 @@ namespace KoiCenter.Service
                 return new BusinessResult(Const.ERROR_EXCEPTION, ex.Message);
             }
         }
+
 
     }
 }

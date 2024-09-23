@@ -1,7 +1,13 @@
+using KoiCenter.Data.Models;
+using KoiCenter.Service;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddScoped<PetService>();
+builder.Services.AddScoped<FA24_SE1702_PRN221_G3_KoiVeterinaryServiceCenterContext>();
+
 
 var app = builder.Build();
 
